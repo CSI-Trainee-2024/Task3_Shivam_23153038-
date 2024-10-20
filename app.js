@@ -72,21 +72,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Create function to move aliens ----------------------------------------
 
   setInterval(() => {
-    // remove the class of activeAlien from that square
+    // Remove the class of activeAlien from each current square
     alienArray.forEach(alien => {
-      squares[alien].classList.remove('activeAlien')
-    })
-
-    //  overwrite the alien array by adding 1 to each square (move to right)
-    alienArray = alienArray.map(alien => alien + 1)
-
-    // add the class of activealien to each square
+      squares[alien].classList.remove('activeAlien');
+    });
+  
+    // Update the alien array
+    alienArray = alienArray.map(alien => {
+      // Check if the alien is at the rightmost edge
+      if ((alien + 1) % width === 0) { // If alien is at the rightmost edge
+        // Move to the leftmost position of the next row below
+        return (Math.floor(alien / width) + 1) * width; // Move down one row to the first column
+      } else {
+        return alien + 1; // Move right
+      }
+    });
+  
+    // Remove aliens that have moved below the grid
+    alienArray = alienArray.filter(alien => alien < width * width);
+  
+    // Add the class of activeAlien to the new positions
     alienArray.forEach(alien => {
-      squares[alien].classList.add('activeAlien')
-    })
-
-  }, 500)
-
-
-
+      squares[alien].classList.add('activeAlien');
+    });
+  
+  }, 500);
 })
+
+  // User Bullet ===============================================
+  squares[bulletIndex].classList.add('bullet')
+
+
+  // Added event listener on space bar to fire bullet ----------------------
+  // this bit doesn't work --------
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 32) {
+      bulletIndex = squares[bulletIndex - width].classList.add('bullet')
+    }
+  })
+  // bulletIndex = squares[bulletIndex - width].classList.add('bullet')
