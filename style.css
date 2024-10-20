@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     margin: 0;
-    background-image: url('https://www.dronstudy.com/wp-content/uploads//2017/11/dark-background-with-star-like-dots_bkpaotdgh__F0000.png');
+    background-image: url('images/backgroundimage.png');
     background-size: cover;
     font-family: 'Exo 2', sans-serif;
   }
@@ -33,40 +33,30 @@
     height: 500px;
     width: 500px;
     display: flex;
-    /* opacity: 0.8; */
-    /* background-color: black; */
-    /* flex-grow: 1; */
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 50px;
-    /* max-height: 500px;
-    max-width: 500px; */
-    border-bottom: 5px solid #01fe01;
+    border-bottom: 3px solid #01fe01;
   }
   
   .grid div {
     flex-grow: 1;
     height: 5.67%;
     width: 5.66%;
-    /* border: 1px solid white; */
     margin: 2px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   .activeAlien {
     background-image: url('images/alienimage.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    /* padding: 4px; */
   }
   
-  .grid div.spaceship {
+  .spaceship {
     background-image: url('images/userspaceshipone.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 0;
-    margin: 0;
+    background-size: 117%;
     -webkit-animation-name: spaceboots;
     -webkit-animation-duration: 2s;
     -webkit-transform-origin: 50% 50%;
@@ -76,16 +66,10 @@
   
   .bullet {
     background-image: url('images/userbulletone.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
   }
   
   .bomb {
     background-image: url('images/rocket.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
   }
   
   .score, .lives {
@@ -93,7 +77,6 @@
     width: 150px;
     font-size: 20px;
     color: white;
-    margin: 10px 0;
   }
   
   .lives {
@@ -101,9 +84,8 @@
     text-align: right;
   }
   
-  
-  .endMessage, .endMessageWin {
-    color: #ff5b2f;
+  .endMessage {
+    color: #ff4f00;
     font-size: 34px;
     text-align: center;
     margin-top: 20px;
@@ -118,24 +100,28 @@
     margin-top: 30px;
     letter-spacing: 10px;
     font-weight: bold;
-    /* border: 1px solid white; */
-    /* width: 20px;
-    height: 20px; */
   }
   
-  .reset:hover, .start:hover {
+  .start:hover {
     cursor: pointer;
+    letter-spacing: 15px;
   }
   
   .explosion {
     background-image: url('images/explosion-two.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
   }
   
   .hidden {
     display: none!important;
+  }
+  
+  .countdown {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    letter-spacing: 10px;
+    font-weight: bold;
   }
   
   @-webkit-keyframes spaceboots {

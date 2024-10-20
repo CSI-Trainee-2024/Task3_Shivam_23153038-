@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     endMessage = document.querySelector('.endMessage'),
     start = document.querySelector('.start'),
     audio = document.querySelector('audio'),
-    width = 15,
+    width = 15,  
     alienStart = [0,1,2,3,4,5,6,7,8,9,10,15,16,17,18,19,20,21,22,23,24,25,30,31,32,33,34,35,36,37,38,39,40],
     alienMovement = [1,1,1,1,width,-1,-1,-1,-1,width],
     squares = []
   let scoreTally = 0,
     livesLeft = 3,
-    alienArray = alienStart.slice(), // to create new array to use on reset - splice modifies existing array
+    alienArray = alienStart.slice(), // to create new array to use on reset - splice modifies existing array// No code to replace, as there is no selected code.
     currentAlienMove = 0,
     spaceshipIndex = 217,
     gameInPlay = true,
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alienBombMovementId,
     alienBombId
 
-  start.innerText = 'Play game'
+  start.innerText = 'Start game'
 
   // Start game function
   function gameInit() {
@@ -55,6 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.appendChild(square)
   }
 
+  // AUDIO =====================================================================
+  function bulletAudio() {
+    audio.src = 'sounds/004_13.wav'
+    audio.play()
+  }
+
+  function alienBombAudio() {
+    audio.src = 'sounds/005_14.wav'
+    audio.play()
+  }
+  //
+  function loseLifeAudio() {
+    audio.src = 'sounds/009_18.wav'
+    audio.play()
+  }
+
+  function gameOverAudio() {
+    audio.src = 'sounds/016_8.wav'
+    audio.play()
+  }
   // USER SPACESHIP ============================================================
   function moveSpaceship() {
     // find the square with the class of spaceship
@@ -92,11 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ALIEN BOMB ================================================================
   function alienBomb() {
-    // const alienBombId = setInterval(() => {
     let bombIndex = alienArray[Math.floor(Math.random() * alienArray.length)]
     alienBombAudio()
 
-    const alienBombMovementId = setInterval(() => { // interval isn't clearing properly on play again
+    const alienBombMovementId = setInterval(() => {
       bombIndex = drawBullet(bombIndex, width, 'bomb')
       if (collision(bombIndex, 'spaceship', 'bomb', alienBombMovementId)) {
         loseLife()
@@ -105,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('hello')
       if(!gameInPlay) clearInterval(alienBombMovementId)
     }, 400)
-    // }, 2000)
   }
 
   // Lose life function ========================================================
@@ -122,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function gameOver(message) {
     gameInPlay = false
-    gameOverAudio() 
+    gameOverAudio()
     clearInterval(alienBombId)
     alienBombId = null
     clearInterval(moveAliensTimerId)
@@ -143,26 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     livesId.classList.remove('hidden')
     // livesLeft = 0
     livesId.innerText = livesLeft
-  }
-
-  function bulletAudio() {
-    audio.src = 'sounds/004_13.wav'
-    audio.play()
-  }
-
-  function alienBombAudio() {
-    audio.src = 'sounds/005_14.wav'
-    audio.play()
-  }
-  //
-  function loseLifeAudio() {
-    audio.src = 'sounds/009_18.wav'
-    audio.play()
-  }
-
-  function gameOverAudio() {
-    audio.src = 'sounds/016_8.wav'
-    audio.play()
   }
 
   function drawBullet(index, next, shot){
