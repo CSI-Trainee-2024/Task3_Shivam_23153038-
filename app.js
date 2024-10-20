@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const squares = []
   let spaceshipIndex = 217
 
-
   // Create grid
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('div')
@@ -16,11 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // User spaceship ======================================
+  // User spaceship ========================================================
   // Create user spaceship
   squares[spaceshipIndex].classList.add('spaceship')
-  
-  // Create function to move user spaceship
+
+  // Create function to move user spaceship -------------------------------
 
   function moveSpaceship() {
     // find the square with the class of spaceship
@@ -31,26 +30,37 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[spaceshipIndex].classList.add('spaceship')
   }
 
-  // Add event listener to move user moveSpaceship----------------------------------
+  // Add event listener to move user moveSpaceship ------------------------
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      // Move left
-      if (spaceshipIndex % width > 0) {
-        spaceshipIndex--;
+    switch (e.key) {
+      case 'ArrowLeft':
+        // Move left
+        if (spaceshipIndex % width > 0) {
+          spaceshipIndex--; // Move left
+        } else {
+          // If at the left edge, move to the right edge of the same row
+          spaceshipIndex = (Math.floor(spaceshipIndex / width) + 1) * width - 1; // Move to the last index of the same row
+        }
         moveSpaceship();
-      }
-    } else if (e.key === 'ArrowRight') {
-      // Move right
-      if (spaceshipIndex % width < width - 1) {
-        spaceshipIndex++;
+        break;
+  
+      case 'ArrowRight':
+        // Move right
+        if (spaceshipIndex % width < width - 1) {
+          spaceshipIndex++; // Move right
+        } else {
+          // If at the right edge, move to the left edge of the same row
+          spaceshipIndex = Math.floor(spaceshipIndex / width) * width; // Move to the first index of the same row
+        }
         moveSpaceship();
-      }
+        break;
     }
   });
+  
 
 
-  // Aliens ==============================================
+  // Aliens ================================================================
 
   // Create alien array
   alienArray.forEach(alien => {
@@ -59,13 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   console.log(alienArray)
 
-  //create the function to move aliens
-  setInterval(()=>{
-    //remove the class of activeAlien from all squares
-    alienArray.forEach(alien=>{
-        squares[alien].classList.remove('activeAlien')
+  // Create function to move aliens ----------------------------------------
+
+  setInterval(() => {
+    // remove the class of activeAlien from that square
+    alienArray.forEach(alien => {
+      squares[alien].classList.remove('activeAlien')
     })
-    //overwrite the class of activeAlien by adding 1 to each square(move to right)
-    alienArray = alienArray
-  },400)
+
+    //  overwrite the alien array by adding 1 to each square (move to right)
+    alienArray = alienArray.map(alien => alien + 1)
+
+    // add the class of activealien to each square
+    alienArray.forEach(alien => {
+      squares[alien].classList.add('activeAlien')
+    })
+
+  }, 500)
+
+
+
 })
