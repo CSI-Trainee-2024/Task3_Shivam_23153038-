@@ -2,11 +2,11 @@ console.log('JS loaded')
 
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid')
+  let alienArray = [0,1,2,3,4,5,6,7,8,9,15,16,17,18,19,20,21,22,23,24,30,31,32,33,34,35,36,37,38,39]
   const width = 15
   const squares = []
   let spaceshipIndex = 217
-  let direction = 'right'
-  let alienArray = [0,1,2,3,4,5,6,7,8,15,16,17,18,19,20,21,22,23,30,31,32,33,34,35,36,37,38]
+
 
   // Create grid
   for(let i = 0; i < width * width; i++) {
@@ -19,10 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // User spaceship ======================================
   // Create user spaceship
   squares[spaceshipIndex].classList.add('spaceship')
-  squares[spaceshipIndex].classList.add('data-direction', direction)
-
-
-
+  
   // Create function to move user spaceship
 
   function moveSpaceship() {
@@ -34,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     squares[spaceshipIndex].classList.add('spaceship')
   }
 
-  // Add event listener to move user moveSpaceship
+  // Add event listener to move user moveSpaceship----------------------------------
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
@@ -62,12 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   console.log(alienArray)
 
-
-
-
-
-
-
-
-
+  //create the function to move aliens
+  setInterval(()=>{
+    //remove the class of activeAlien from all squares
+    alienArray.forEach(alien=>{
+        squares[alien].classList.remove('activeAlien')
+    })
+    //overwrite the class of activeAlien by adding 1 to each square(move to right)
+    alienArray = alienArray
+  },400)
 })
