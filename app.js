@@ -109,12 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 500);
 })
 
-  // User Bullet ===============================================
-  // squares[bulletIndex].classList.add('bullet')
+  // Set bomb to drop every 2 seconds (by calling alien bomb function)
+  const alienBombId = setInterval(alienBomb, 2000)
 
+  function alienBomb() {
+    // setInterval(() => {
+    let randomIndex = Math.floor(Math.random() * 40) // create random number between 0-30 so only bottom array of aliens drop bombs?
+    let bombIndex = alienArray[randomIndex]
+    setInterval(() => {
+      squares[bombIndex].classList.remove('bomb')
+      bombIndex += width
+      squares[bombIndex].classList.add('bomb')
+    }, 500)
+    // }, 2000)
+  }
 
-  // Added event listener on space bar to fire bullet ----------------------
-  // this bit doesn't work --------
-
-
-  // bulletIndex = squares[bulletIndex - width].classList.add('bullet')
+  alienBomb()
