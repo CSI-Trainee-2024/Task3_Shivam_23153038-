@@ -1,107 +1,154 @@
 * {
-  box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0;
-  background-image: url('https://media.giphy.com/media/aqkJ9q160Zmta/giphy.gif');
-  /* background-size: cover; */
-  font-family: 'Exo 2', sans-serif;
-}
-
-header {
-  justify-content: center;
-  font-size: 28px;
-  align-content: center;
-  letter-spacing: 10px;
-  color: white;
-  height: 8%;
-  margin-bottom: 30px;
-  font-weight: bold;
-}
-
-h1 {
-  margin: 0;
-}
-
-/* .main {
-  display: flex;
-} */
-
-.grid {
-  height: 500px;
-  width: 500px;
-  display: flex;
-  /* flex-grow: 1; */
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-  /* max-height: 500px;
-  max-width: 500px; */
-  border-bottom: 5px solid #00ff00;
-
-}
-
-.grid div {
-  flex-grow: 1;
-  height: 5.67%;
-  width: 5.66%;
-  border: 1px solid white;
-  margin: 2px;
-}
-
-.activeAlien {
-  /* background-color: #ff7163; */
-  background-image: url('images/alien.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.grid div.spaceship {
-  /* background-color: #d3d3d3; */
-  background-image: url('images/spaceship.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.bullet {
-  background-image: url('images/userbullet.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.bomb {
-  background-image: url('images/bomb.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.score, .lives {
-  display: inline-block;
-  width: 150px;
-  font-size: 20px;
-  color: white;
-  margin: 10px 0;
-}
-
-.lives {
-  float: right;
-  text-align: right;
-}
-
-.redTop {
-  border-top: 2px solid red;
-}
-
-
-
-/* .score, .lives{
-}
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    background-image: url('https://www.dronstudy.com/wp-content/uploads//2017/11/dark-background-with-star-like-dots_bkpaotdgh__F0000.png');
+    background-size: cover;
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  header {
+    justify-content: center;
+    font-size: 40px;
+    align-content: center;
+    letter-spacing: 10px;
+    color: white;
+    height: 10%;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  .grid {
+    height: 500px;
+    width: 500px;
+    display: flex;
+    /* opacity: 0.8; */
+    /* background-color: black; */
+    /* flex-grow: 1; */
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+    /* max-height: 500px;
+    max-width: 500px; */
+    border-bottom: 5px solid #01fe01;
+  }
+  
+  .grid div {
+    flex-grow: 1;
+    height: 5.67%;
+    width: 5.66%;
+    /* border: 1px solid white; */
+    margin: 2px;
+  }
+  
+  .activeAlien {
+    background-image: url('images/alienimage.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* padding: 4px; */
+  }
+  
+  .grid div.spaceship {
+    background-image: url('images/userspaceshipone.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+    margin: 0;
+    -webkit-animation-name: spaceboots;
+    -webkit-animation-duration: 2s;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+  }
+  
+  .bullet {
+    background-image: url('images/userbulletone.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .bomb {
+    background-image: url('images/rocket.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .score, .lives {
+    display: inline-block;
+    width: 150px;
+    font-size: 20px;
+    color: white;
+    margin: 10px 0;
+  }
+  
+  .lives {
+    float: right;
+    text-align: right;
+  }
+  
+  
+  .endMessage, .endMessageWin {
+    color: #ff5b2f;
+    font-size: 34px;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 15px;
+    font-weight: bold;
+  }
+  
+  .start {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    /* border: 1px solid white; */
+    /* width: 20px;
+    height: 20px; */
+  }
+  
+  .reset:hover, .start:hover {
+    cursor: pointer;
+  }
+  
+  .explosion {
+    background-image: url('images/explosion-two.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .hidden {
+    display: none!important;
+  }
+  
+  @-webkit-keyframes spaceboots {
+     0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+     10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+     20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+     30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+     40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+     50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+     60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+     70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+     80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+     90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+     100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+  }
+  
