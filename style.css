@@ -1,82 +1,107 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    background-image: url('https://media.giphy.com/media/aqkJ9q160Zmta/giphy.gif');
-    /* background-size: cover; */
-    font-family: 'Exo 2', sans-serif;
-  }
-  
-  header {
-    justify-content: center;
-    font-size: 28px;
-    align-content: center;
-    letter-spacing: 10px;
-    color: white;
-    height: 8%;
-    margin-bottom: 60px;
-    font-weight: bold;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  .grid {
-    height: 500px;
-    width: 500px;
-    display: flex;
-    /* flex-grow: 1; */
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* max-height: 500px;
-    max-width: 500px; */
-    border-bottom: 5px solid #00ff00;
-  
-  }
-  
-  .grid div {
-    flex-grow: 1;
-    height: 5.67%;
-    width: 5.66%;
-    border: 1px solid white;
-    margin: 2px;
-  }
-  
-  .activeAlien {
-    /* background-color: #ff7163; */
-    background-image: url('images/alien.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  
-  .grid div.spaceship {
-    /* background-color: #d3d3d3; */
-    background-image: url('images/spaceship.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  .bullet {
-    background-image: url('images/userbullet.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-  
-  .bomb {
-    background-image: url('images/bomb2.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  background-image: url('https://media.giphy.com/media/aqkJ9q160Zmta/giphy.gif');
+  /* background-size: cover; */
+  font-family: 'Exo 2', sans-serif;
+}
+
+header {
+  justify-content: center;
+  font-size: 28px;
+  align-content: center;
+  letter-spacing: 10px;
+  color: white;
+  height: 8%;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* .main {
+  display: flex;
+} */
+
+.grid {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  /* flex-grow: 1; */
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* max-height: 500px;
+  max-width: 500px; */
+  border-bottom: 5px solid #00ff00;
+
+}
+
+.grid div {
+  flex-grow: 1;
+  height: 5.67%;
+  width: 5.66%;
+  border: 1px solid white;
+  margin: 2px;
+}
+
+.activeAlien {
+  /* background-color: #ff7163; */
+  background-image: url('images/alien.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.grid div.spaceship {
+  /* background-color: #d3d3d3; */
+  background-image: url('images/spaceship.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bullet {
+  background-image: url('images/userbullet.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bomb {
+  background-image: url('images/bomb.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.score, .lives {
+  display: inline-block;
+  width: 150px;
+  font-size: 20px;
+  color: white;
+  margin: 10px 0;
+}
+
+.lives {
+  float: right;
+  text-align: right;
+}
+
+.redTop {
+  border-top: 2px solid red;
+}
+
+
+
+/* .score, .lives{
+}
