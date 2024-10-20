@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function alienBomb() {
     // setInterval(() => {
-    let randomIndex = Math.floor(Math.random() * 40) // create random number between 0-30 so only bottom array of aliens drop bombs?
+    let randomIndex = Math.floor(Math.random() * 14) 
     let bombIndex = alienArray[randomIndex]
     setInterval(() => {
       squares[bombIndex].classList.remove('bomb')
