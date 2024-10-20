@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 15
   const squares = []
   let spaceshipIndex = [217]
-  let bulletIndex = 0// spaceshipIndex - 15 (width)
+  let bulletIndex = spaceshipIndex 
 
   // Create grid
   for(let i = 0; i < width * width; i++) {
@@ -107,8 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Added event listener on space bar to fire bullet ----------------------
   // this bit doesn't work --------
   document.addEventListener('keydown', (e) => {
-    if (e.keyCode === 32) {
-      bulletIndex = squares[spaceshipIndex - width].classList.add('bullet')
+    if(e.keyCode === 32) {
+      setInterval(() => {
+        squares[bulletIndex].classList.remove('bullet')
+        bulletIndex -= width
+        squares[bulletIndex].classList.add('bullet')
+      }, 500)
     }
   })
+
   // bulletIndex = squares[bulletIndex - width].classList.add('bullet')
